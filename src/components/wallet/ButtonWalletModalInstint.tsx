@@ -60,7 +60,7 @@ export default function ButtonWalletModalInstint({
           src={image}
           alt={imageStyles.alt}
           height={imageStyles.height}
-          width={imageStyles.width}
+          
         />
         <HeaderInstint
           content={wallet}
