@@ -21,3 +21,16 @@ export interface ButtonInstintImageProps extends MainInstintProps {
   hover?: () => void;
   imageProps: ImageInstintProps;
 }
+export interface ButtonIconInstintStyles {
+  button: StylesInstintProps;
+  span: StylesInstintProps;
+}
+export interface ButtonImageInstintStyles {
+  button: StylesInstintProps;
+  card: StylesInstintProps;
+  image: StylesInstintProps;
+}
+export interface ButtonTextInstintStyles {
+  button: StylesInstintProps;
+  card: StylesInstintProps;
+}

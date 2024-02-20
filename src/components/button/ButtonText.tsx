@@ -1,7 +1,8 @@
 import { ButtonInstintTextProps } from "@/types/interfaces/button";
-import { determineClass } from "@/types/interfaces/main";
+import { StylesInstintProps, determineClass } from "@/types/interfaces/main";
 import { useMemo } from "react";
 import CardInstint from "../card/Card";
+
 export default function ButtonTextInstint(
   { content, theme, buttonStyles, cardStyles, darkInstint, onClick }: ButtonInstintTextProps,
 ) {

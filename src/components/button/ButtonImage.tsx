@@ -1,8 +1,9 @@
 import { ButtonInstintImageProps } from "@/types/interfaces/button";
-import { determineClass } from "@/types/interfaces/main";
+import { StylesInstintProps, determineClass } from "@/types/interfaces/main";
 import Image from "next/image";
 import { useMemo } from "react";
 import CardInstint from "../card/Card";
+
 export default function ButtonImageInstint({
   theme,
   cardStyles,

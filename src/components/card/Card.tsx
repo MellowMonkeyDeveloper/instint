@@ -1,3 +1,5 @@
+'use client'
+
 import { CardInstintProps } from "@/types/interfaces/card";
 import { determineClass } from "@/types/interfaces/main";
 import { useMemo } from "react";

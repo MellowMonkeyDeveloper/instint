@@ -1,15 +1,16 @@
+"use client";
 import {
   MainInstintProps,
   StylesInstintProps,
   determineClass,
 } from "@/types/interfaces/main";
 import { extname } from "path";
-import { ReactElement, useMemo } from "react";
+import { ReactElement, useEffect, useMemo, useState } from "react";
 import CardInstint from "../card/Card";
+import card from "../../../styles/card.module.scss";
 export interface ButtonIconInstintProps extends MainInstintProps {
   content: string;
   icon: ReactElement;
-  containerStyles: StylesInstintProps;
   buttonStyles: StylesInstintProps;
   spanStyles: StylesInstintProps;
   onClick?: () => void;
@@ -19,43 +20,28 @@ export interface ButtonIconInstintProps extends MainInstintProps {
 export default function ButtonIconInstint({
   content,
   icon,
-  containerStyles,
   buttonStyles,
   onClick,
   spanStyles,
   theme,
   darkInstint,
-  hover
+  hover,
 }: ButtonIconInstintProps) {
-  const buttonColor = useMemo(() => {
+  const [buttonColor, setButtonColor] = useState<any>();
+  useEffect(() => {
     const colorObject = {
-      container: determineClass(
-        theme,
-        containerStyles.brandStyles,
-        containerStyles.darkStyles,
-        containerStyles.lightStyles,
-        darkInstint
-      ),
-      button: determineClass(
-        theme,
-        buttonStyles.brandStyles,
-        buttonStyles.darkStyles,
-        buttonStyles.lightStyles,
-        darkInstint
-      ),
-      span: determineClass(
-        theme,
-        spanStyles.brandStyles,
-        spanStyles.darkStyles,
-        spanStyles.lightStyles,
-        darkInstint
-      ),
+      button: buttonStyles.brandStyles,
+      span: spanStyles.brandStyles,
     };
-    return colorObject;
+    setButtonColor(colorObject);
   }, [theme, darkInstint]);
   return (
-    <CardInstint className={buttonColor.container}>
-      <button onMouseOver={hover} className={buttonColor.button} onClick={onClick}>
+    <CardInstint className={card.buttonContainer}>
+      <button
+        onMouseOver={hover}
+        className={buttonColor.button}
+        onClick={onClick}
+      >
         {icon}
         <span className={buttonColor.span}>{content}</span>
       </button>
