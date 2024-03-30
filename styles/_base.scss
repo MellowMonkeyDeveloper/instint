@@ -1,0 +1,132 @@
+$primaryDark: rgb(36, 36, 36);
+$secondaryDark: rgb(43, 43, 43);
+$thirdDark: rgb(51, 51, 51);
+$fourthDark: #ffd700;
+$fontDark: white;
+$darkColors: (
+  primaryDark: $primaryDark,
+  secondaryDark: $secondaryDark,
+  thirdDark: $thirdDark,
+  fourthDark: $fourthDark,
+  fontDark: $fontDark
+);
+$primaryLight: rgb(241, 241, 241);
+$secondaryLight: rgb(235, 235, 235);
+$thirdLight: rgb(230, 230, 230);
+$fourthLight: rgb(36, 196, 102);
+$fontLight: black;
+$lightColors: (
+  primaryLight: $primaryLight,
+  secondaryLight: $secondaryLight,
+  thirdLight: $thirdLight,
+  fourthLight: $fourthLight,
+  fontLight: $fontLight
+);
+$successStatus: green;
+$errorStatus: rgb(202, 90, 25);
+$warningStatus: yellow;
+$notificationStatus: rgb(18, 132, 224);
+$statusColor: (
+  success: $successStatus,
+  error: $errorStatus,
+  warning: $warningStatus,
+  notification: $notificationStatus,
+);
+$margin-lite: 5px;
+$margin-medium: 10px;
+$margin-heavy: 15px;
+$padding-lite: 5px;
+$padding-medium: 10px;
+$padding-heavy: 15px;
+
+$margin: (
+  marginLite: $margin-lite,
+  marginMedium: $margin-medium,
+  marginHeavy: $margin-heavy,
+);
+
+$padding: (
+  paddingLite: $padding-lite,
+  paddingMedium: $padding-medium,
+  paddingHeavy: $padding-heavy,
+);
+
+$w25: 25%;
+$w40: 40%;
+$w50: 50%;
+$w75: 75%;
+$w90: 90%;
+$w100: 100%;
+
+$width: (
+  w25: $w25,
+  w40: $w40,
+  w50: $w50,
+  w75: $w75,
+  w90: $w90,
+  w100: $w100,
+);
+
+$br-light: 5px;
+$br-medium: 10px;
+$br-heavy: 15px;
+$br-circle: 50%;
+
+$border-radius: (
+  brLight: $br-light,
+  brMedium: $br-medium,
+  brHeavy: $br-heavy,
+  brCircle: $br-circle,
+);
+
+$bw-light: 1px;
+$bw-medium: 2.25px;
+$bw-heavy: 3.5px;
+$border-width: (
+  bwLight: $bw-light,
+  bwMedium: $bw-medium,
+  bwHeavy: $bw-heavy,
+);
+@mixin center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+$ls-light: 1.02px;
+$ls-medium: 1.06px;
+$ls-heavy: 1.1px;
+$letter-spacing: (
+  lsLite: $ls-light,
+  lsMed: $ls-medium,
+  lsHeavy: $ls-heavy
+);
+
+@mixin container($width, $key) {
+  display: flex;
+  width: map-get($map: $width, $key: $key);
+  @include center-box;
+}
+
+@mixin button($padding, $medium, $lite){
+    padding-top: map-get($map: $padding, $key: $lite);
+    padding-bottom: map-get($map: $padding, $key: $lite);
+    padding-left: map-get($map: $padding, $key: $medium);
+    padding-right: map-get($map: $padding, $key: $medium);
+}
+
+@mixin light-button($light, $background, $color){
+    @include button($padding, paddingMedium, paddingLite);
+    background-color: map-get($map: $light, $key: $background);
+    color: map-get($map: $light, $key: $color);
+    border: none;
+    border-radius: $br-light
+}
+
+@mixin dark-button($dark, $background, $color){
+    @include button($padding, paddingMedium, paddingLite);
+    background-color: map-get($map: $dark, $key: $background);
+    color: map-get($map: $dark, $key: $color);
+    border: 1px solid black;
+    border-radius: $br-light;
+    letter-spacing: 1.05px;
+}
